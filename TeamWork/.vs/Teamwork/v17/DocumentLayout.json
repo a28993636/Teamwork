@@ -1,0 +1,458 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\models\\metadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\models\\metadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\views\\groups\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\views\\groups\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\views\\tasks\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\views\\tasks\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\views\\groups\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\views\\groups\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\views\\groups\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\views\\groups\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\views\\groups\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\views\\groups\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\views\\tasks\\indexall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\views\\tasks\\indexall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\controllers\\progressescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\controllers\\progressescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\filters\\loginstatusfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\filters\\loginstatusfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\views\\shared\\_userlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\views\\shared\\_userlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\controllers\\groupscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\controllers\\groupscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\views\\tasks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\views\\tasks\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\views\\tasks\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\models\\progress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\models\\progress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\models\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\viewmodels\\vmgroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\viewmodels\\vmgroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\models\\groupdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\models\\groupdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\viewmodels\\vmtask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\viewmodels\\vmtask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|h:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\teamwork\\teamwork\\models\\teamworkcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ADF9CDE-6175-4475-98A5-1BD7547D72E5}|Teamwork\\Teamwork.csproj|solutionrelative:teamwork\\models\\teamworkcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MetaData.cs",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Models\\MetaData.cs",
+              "RelativeDocumentMoniker": "TeamWork\\Models\\MetaData.cs",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Models\\MetaData.cs",
+              "RelativeToolTip": "TeamWork\\Models\\MetaData.cs",
+              "ViewState": "AgIAAPAAAAAAAAAAAAAzwEwAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T16:10:23.007Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TasksController.cs",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Controllers\\TasksController.cs",
+              "RelativeDocumentMoniker": "TeamWork\\Controllers\\TasksController.cs",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Controllers\\TasksController.cs",
+              "RelativeToolTip": "TeamWork\\Controllers\\TasksController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T03:28:12.899Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProgressesController.cs",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Controllers\\ProgressesController.cs",
+              "RelativeDocumentMoniker": "TeamWork\\Controllers\\ProgressesController.cs",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Controllers\\ProgressesController.cs",
+              "RelativeToolTip": "TeamWork\\Controllers\\ProgressesController.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAwwKEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T20:49:20.451Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GroupsController.cs",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Controllers\\GroupsController.cs",
+              "RelativeDocumentMoniker": "TeamWork\\Controllers\\GroupsController.cs",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Controllers\\GroupsController.cs",
+              "RelativeToolTip": "TeamWork\\Controllers\\GroupsController.cs",
+              "ViewState": "AgIAAIgBAAAAAAAAAAAAwIwBAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T03:29:14.529Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IndexAll.cshtml",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Tasks\\IndexAll.cshtml",
+              "RelativeDocumentMoniker": "TeamWork\\Views\\Tasks\\IndexAll.cshtml",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Tasks\\IndexAll.cshtml",
+              "RelativeToolTip": "TeamWork\\Views\\Tasks\\IndexAll.cshtml",
+              "ViewState": "AgIAAM0AAAAAAAAAAAAYwNwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-14T02:37:31.966Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Groups\\Create.cshtml",
+              "RelativeDocumentMoniker": "TeamWork\\Views\\Groups\\Create.cshtml",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Groups\\Create.cshtml",
+              "RelativeToolTip": "TeamWork\\Views\\Groups\\Create.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAEAAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-25T06:29:24.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Tasks\\Create.cshtml",
+              "RelativeDocumentMoniker": "TeamWork\\Views\\Tasks\\Create.cshtml",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Tasks\\Create.cshtml",
+              "RelativeToolTip": "TeamWork\\Views\\Tasks\\Create.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABYAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-13T06:28:22.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "TeamWork\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "TeamWork\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-25T03:50:42.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "TeamWork\\Controllers\\LoginController.cs",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "TeamWork\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAADwvy0AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T00:53:39.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Groups\\Index.cshtml",
+              "RelativeDocumentMoniker": "TeamWork\\Views\\Groups\\Index.cshtml",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Groups\\Index.cshtml",
+              "RelativeToolTip": "TeamWork\\Views\\Groups\\Index.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADMAAACNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-18T01:03:16.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Groups\\Details.cshtml",
+              "RelativeDocumentMoniker": "TeamWork\\Views\\Groups\\Details.cshtml",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Groups\\Details.cshtml",
+              "RelativeToolTip": "TeamWork\\Views\\Groups\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-24T07:36:49.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Groups\\Delete.cshtml",
+              "RelativeDocumentMoniker": "TeamWork\\Views\\Groups\\Delete.cshtml",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Groups\\Delete.cshtml",
+              "RelativeToolTip": "TeamWork\\Views\\Groups\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-23T22:26:12.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LoginStatusFilter.cs",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Filters\\LoginStatusFilter.cs",
+              "RelativeDocumentMoniker": "TeamWork\\Filters\\LoginStatusFilter.cs",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Filters\\LoginStatusFilter.cs",
+              "RelativeToolTip": "TeamWork\\Filters\\LoginStatusFilter.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T02:23:42.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Program.cs",
+              "RelativeDocumentMoniker": "TeamWork\\Program.cs",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Program.cs",
+              "RelativeToolTip": "TeamWork\\Program.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB8AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T03:59:02.251Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Login\\Login.cshtml",
+              "RelativeDocumentMoniker": "TeamWork\\Views\\Login\\Login.cshtml",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Login\\Login.cshtml",
+              "RelativeToolTip": "TeamWork\\Views\\Login\\Login.cshtml",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAABoAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-18T08:16:22.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Tasks\\Index.cshtml",
+              "RelativeDocumentMoniker": "TeamWork\\Views\\Tasks\\Index.cshtml",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Tasks\\Index.cshtml",
+              "RelativeToolTip": "TeamWork\\Views\\Tasks\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-24T03:51:49.124Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "_UserLayout.cshtml",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Shared\\_UserLayout.cshtml",
+              "RelativeDocumentMoniker": "TeamWork\\Views\\Shared\\_UserLayout.cshtml",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Shared\\_UserLayout.cshtml",
+              "RelativeToolTip": "TeamWork\\Views\\Shared\\_UserLayout.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-24T13:34:49.892Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "TeamWork\\Views\\Home\\Index.cshtml",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "TeamWork\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-24T13:35:37.214Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Tasks\\Edit.cshtml",
+              "RelativeDocumentMoniker": "TeamWork\\Views\\Tasks\\Edit.cshtml",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Views\\Tasks\\Edit.cshtml",
+              "RelativeToolTip": "TeamWork\\Views\\Tasks\\Edit.cshtml",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAYwEkAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-21T15:44:12.934Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Group.cs",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Models\\Group.cs",
+              "RelativeDocumentMoniker": "TeamWork\\Models\\Group.cs",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Models\\Group.cs",
+              "RelativeToolTip": "TeamWork\\Models\\Group.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T22:45:59.151Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Progress.cs",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Models\\Progress.cs",
+              "RelativeDocumentMoniker": "TeamWork\\Models\\Progress.cs",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Models\\Progress.cs",
+              "RelativeToolTip": "TeamWork\\Models\\Progress.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T20:42:19.125Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Task.cs",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Models\\Task.cs",
+              "RelativeDocumentMoniker": "TeamWork\\Models\\Task.cs",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Models\\Task.cs",
+              "RelativeToolTip": "TeamWork\\Models\\Task.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAQwCMAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T06:10:47.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "VMGroup.cs",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\ViewModels\\VMGroup.cs",
+              "RelativeDocumentMoniker": "TeamWork\\ViewModels\\VMGroup.cs",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\ViewModels\\VMGroup.cs",
+              "RelativeToolTip": "TeamWork\\ViewModels\\VMGroup.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T02:29:48.601Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "GroupDetail.cs",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Models\\GroupDetail.cs",
+              "RelativeDocumentMoniker": "TeamWork\\Models\\GroupDetail.cs",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Models\\GroupDetail.cs",
+              "RelativeToolTip": "TeamWork\\Models\\GroupDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T02:43:04.536Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "VMTask.cs",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\ViewModels\\VMTask.cs",
+              "RelativeDocumentMoniker": "TeamWork\\ViewModels\\VMTask.cs",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\ViewModels\\VMTask.cs",
+              "RelativeToolTip": "TeamWork\\ViewModels\\VMTask.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T06:06:29.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "TeamworkContext.cs",
+              "DocumentMoniker": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Models\\TeamworkContext.cs",
+              "RelativeDocumentMoniker": "TeamWork\\Models\\TeamworkContext.cs",
+              "ToolTip": "H:\\\u5C08\u984C\\\u4F3A\u670D\u7AEF\\TeamWork\\TeamWork\\Models\\TeamworkContext.cs",
+              "RelativeToolTip": "TeamWork\\Models\\TeamworkContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T01:47:58.356Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

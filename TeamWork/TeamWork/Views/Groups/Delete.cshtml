@@ -1,0 +1,61 @@
+﻿@model Teamwork.Models.Group
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Delete";
+}
+
+<h2 class="text-center">刪除小組</h2>
+
+<h4 class="text-center text-danger">確認刪除？</h4>
+<hr />
+<div class="d-flex justify-content-center align-items-center flex-column">
+    <dl class="row w-50">
+        <dt class="col-sm-3 text-end">
+            @Html.DisplayNameFor(model => model.GroupName)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.GroupName)
+        </dd>
+        <dt class="col-sm-3 text-end">
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt class="col-sm-3 text-end">
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+        <dt class="col-sm-3 text-end">
+            任務名稱
+        </dt>
+        <dd class="col-sm-9">
+            @if (Model.Task != null && Model.Task.Any())
+            {
+                <ul>
+                    @{
+                        int i = 1;
+                    }
+                    @foreach (var task in Model.Task)
+                    {
+                        <p>@i. @task.TaskName</p>
+                        i++;
+                    }
+                </ul>
+            }
+            else
+            {
+                <span>無任務</span>
+            }
+        </dd>
+    </dl>
+
+    <form asp-action="Delete" class="text-center">
+        <input type="hidden" asp-for="GroupNo" />
+        <input type="submit" value="刪除" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-outline-dark">取消</a>
+    </form>
+</div>

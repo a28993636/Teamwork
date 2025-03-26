@@ -1,0 +1,193 @@
+﻿@model Teamwork.ViewModels.VMGroup
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Group Create Page ~ Layout";
+}
+
+<h2 class="text-center">新增小組</h2>
+
+<hr />
+<div class="row ms-2 me-2 justify-content-center">
+    <div class="col-sm-8 col-md-6 col-lg-5">
+        <form asp-action="Create" id="GroupCreateForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="Group.GroupName" class="control-label required"></label>
+                <input asp-for="Group.GroupName" class="form-control " />
+                <span asp-validation-for="Group.GroupName" class="text-danger"></span>
+                <span class="text-danger" id="GroupNameCheck"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Group.StartDate" class="control-label required"></label>
+                <input type="datetime-local" asp-for="Group.StartDate" id="StartDate" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" required />
+                <span asp-validation-for="Group.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Group.EndDate" class="control-label required"></label>
+                <input type="datetime-local" asp-for="Group.EndDate" class="form-control" id="EndDate"
+                       value="@(Model.Group.EndDate != DateTime.MinValue ? Model.Group.EndDate.ToString("yyyy-MM-ddTHH:mm") : "")">
+                <span asp-validation-for="Group.EndDate" class="text-danger"></span>
+            </div>           
+
+
+            <div>
+                <label asp-for="GroupDetail.EmployeeID" class="control-label required"></label><span>(至少選擇一位)</span>
+                <div class="overflow-auto ms-2" style="height: 90px; background-color: #F8F9FA;">
+                @if (ViewBag.Employees != null)
+                {                    
+                    @foreach (var employee in ViewBag.Employees)
+                    {
+                    <div class="form-check ms-2" style="border-color: #A5A5A6">
+                        <input class="form-check-input" type="checkbox" 
+                               name="EmployeeIDs"
+                               id="emp_@employee.Value"
+                               value="@employee.Value"
+                            @(Model?.EmployeeIDs?.Contains(employee.Value) == true ? "checked" : "")>
+                        <label class="form-check-label" for="emp_@employee.Value">
+                            @employee.Text
+                        </label>
+                    </div>
+                    }
+                }
+                    else
+                    {
+                        <p class="text-danger">⚠ 無法載入員工列表</p>
+                    }
+                </div>
+                <!-- 添加隱藏的 checkbox，預選 NEmployee -->
+                <input type="checkbox" name="EmployeeIDs" value="@ViewBag.NEmployee" checked hidden />
+                <span asp-validation-for="GroupDetail.EmployeeID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="GroupDetail.GroupContent" class="control-label required"></label>
+                <textarea asp-for="GroupDetail.GroupContent" class="form-control" placeholder="請輸入小組簡介"></textarea>
+                <span asp-validation-for="GroupDetail.GroupContent" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mt-2 mt-3 text-end">
+                <input type="submit" value="建立" class="btn btn-outline-primary" />
+            
+                <a asp-action="Index" class="btn btn-outline-dark">取消</a>                
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@* <div>
+    <a asp-action="Index">回到列表</a>
+</div> *@
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="alertModalLabel"><i class="bi bi-exclamation-circle text-warning fw-bolder"></i> 提示訊息</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h5 id="alertMessage">請至少再選擇一名員工！</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">確定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const startDateInput = document.getElementById("StartDate");
+            const endDateInput = document.getElementById("EndDate");
+
+                // 確保 input 可以被點選
+        endDateInput.addEventListener("click", function () {
+            this.showPicker(); // 強制打開日期選擇器
+        });
+
+            function updateEndDateMin() {
+                if (startDateInput.value) {
+                    endDateInput.min = startDateInput.value;
+                }
+            }
+
+            // 當開始日期變更時，更新結束日期的 min 屬性
+            startDateInput.addEventListener("change", updateEndDateMin);
+
+            // 頁面加載時初始化 (防止表單回填導致錯誤)
+            updateEndDateMin();
+        });
+
+
+       
+        $(document).ready(function () {
+            const groupNameInput = $('#Group_GroupName'); // 修正選擇器
+            const groupNameCheck = $('#GroupNameCheck');
+            const groupCreateForm = $('#GroupCreateForm');
+
+            groupNameInput.on('input', function () {
+                const groupName = $(this).val().trim();
+                groupNameCheck.text('');
+
+                if (groupName === '') {
+                    return; // 空值時不檢查
+                }
+
+                groupNameCheck.html(`<span class="text-secondary">
+                    <div class="spinner-border text-secondary spinner-border-sm"></div> 檢查名稱中....
+                </span>`);
+
+                $.ajax({
+                    url: `@Url.Action("EmployeeGroupNameCheck", "Groups")?name=${encodeURIComponent(groupName)}`,
+                    type: 'GET',
+                    success: function (data) {
+                        if (data) {
+                            groupNameCheck.html('<span class="text-success">名稱可用 ✅</span>');
+                        } else {
+                            groupNameCheck.html('<span class="text-danger">名稱已存在 ❌</span>');
+                        }
+                    },
+                    error: function () {
+                        groupNameCheck.html('<span class="text-danger">檢查失敗，請稍後再試 ❌</span>');
+                    }
+                });
+            });
+
+            // 禁止提交表單
+            groupCreateForm.on('submit', function (e) {
+                if (groupNameCheck.text().includes('名稱已存在')) {
+                    e.preventDefault();
+                    alert('名稱已存在，請更換名稱！');
+                }
+            });
+        });
+
+
+        $(document).ready(function () {
+            $('#GroupCreateForm').on('submit', function (e) {
+                const checkedEmployees = $('input[name="EmployeeIDs"]:checked')
+                    .not('[hidden]') // 排除隱藏的 NEmployee
+                    .length;
+
+                if (checkedEmployees === 0) {
+                    e.preventDefault();
+                     $('#alertMessage').text('請至少再選擇一名員工！'); // 設定訊息
+                     $('#alertModal').modal('show'); // 顯示 Bootstrap Modal
+                }
+            });
+        });
+
+
+    </script>
+}

@@ -1,0 +1,69 @@
+﻿@model Teamwork.ViewModels.VMTask
+
+@{
+    Layout = null;
+}
+
+@* <h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3> *@
+<div id="deleteData">
+  
+    <dl class="row" >
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Task.TaskName)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Task.TaskName)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Task.TaskCreateDate)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Task.TaskCreateDate)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Task.TaskStartDate)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Task.TaskStartDate)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Task.TaskEndDate)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Task.TaskEndDate)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Task.GroupNoNavigation)
+        </dt>
+        <dd class = "col-sm-9">
+            @(Model.Task.GroupNoNavigation != null ? Html.DisplayFor(model => model.Task.GroupNoNavigation.GroupName) : "個人任務(無加入小組)")
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Task.StatusNoNavigation)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Task.StatusNoNavigation.Status)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Task.TaskTypeNoNavigation)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Task.TaskTypeNoNavigation.TaskTypeName)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.TaskDetail.TaskContent)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.TaskDetail.TaskContent)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete" id="deleteForm">
+        <input type="hidden" asp-for="Task.TaskID" />
+       @*  <input type="hidden" asp-for="TaskDetail.EmployeeID" name="employeeid" /> *@
+       @*  <input type="submit" value="Delete" class="btn btn-danger" /> | *@
+       @*  <a asp-action="Index">Back to List</a> *@
+    </form>
+</div>

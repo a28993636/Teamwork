@@ -1,0 +1,223 @@
+﻿@model Teamwork.ViewModels.VMTask
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Create Page ~ Layout";
+    
+}
+
+<h2 class="text-center">新增任務</h2>
+
+
+<hr />
+<div class="row ms-2 me-2 justify-content-center">
+    <div class="col-sm-6 col-md-6 col-lg-4">
+        <form asp-action="Create" id="createForm">
+            <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @* <input type="hidden" name="Task.TaskID"  /> *@
+            <input type="hidden" name="TaskDetail.EmployeeID"  />
+            
+            <div class="form-group">
+                <label asp-for="Task.TaskName" class="control-label required"></label>
+                <input asp-for="Task.TaskName" class="form-control" id="Task_TaskName" />
+                <span asp-validation-for="Task.TaskName" class="text-danger"></span>
+                <span id="taskNameError" class="text-danger" style="display:none;">任務名稱已經存在，請使用不同的名稱。</span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Task.TaskStartDate" class="control-label required"></label>
+                <input type="datetime-local" asp-for="Task.TaskStartDate" id="Task_TaskStartDate" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" required />
+                <span asp-validation-for="Task.TaskStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Task.TaskEndDate" class="control-label required"></label>
+                <input type="datetime-local" asp-for="Task.TaskEndDate" id="Task_TaskEndDate" class="form-control" required   />
+                <span asp-validation-for="Task.TaskEndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Task.StatusNo" class="control-label required"></label>
+                <select asp-for="Task.StatusNo" class="form-control" asp-items="ViewBag.Status">
+                    <option value="">請選擇狀態</option>
+                </select>
+                <span asp-validation-for="Task.StatusNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Task.TaskTypeNo" class="control-label required"></label>
+                <select asp-for="Task.TaskTypeNo" class="form-control" asp-items="ViewBag.TaskType">
+                    <option value="">請選擇類型</option>
+                </select>
+                <span asp-validation-for="Task.TaskTypeNo" class="text-danger"></span>
+            </div>
+            @*   加入選項--是個人任務或小組任務，是小組任務的話才能選清單。預設個人任務。*@ 
+            <div class="form-group">
+                <label class="control-label required">任務</label>
+                <select id="taskPG" class="form-control valid" onchange="toggleGroupSelect()" aria-invalid="false">
+                    <option value="personal" selected>個人任務</option>
+                    <option value="group">小組任務</option>
+                </select>
+            </div>
+            <div class="form-group" id="groupSelect" style="display: none;">@* *@
+                <label asp-for="Task.GroupNo" class="control-label required"></label>
+                <select id="groupNoSelect" asp-for="Task.GroupNo" class="form-control" asp-items="ViewBag.Group">
+                <option value="">請選擇小組</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="TaskDetail.TaskContent" class="control-label required"></label>
+                <textarea asp-for="TaskDetail.TaskContent" class="form-control" rows="4" placeholder="請輸入任務內容"></textarea>
+                <span asp-validation-for="TaskDetail.TaskContent" class="text-danger"></span>
+            </div>
+            <!-- 隱藏輸入欄位確保個人任務時傳送 NULL -->
+            <input type="hidden" id="hiddenGroupNo" name="Task.GroupNo" value="NULL">
+
+            <div class="mt-2 text-end">
+                <input type="submit" value="建立" class="btn btn-outline-primary" />
+                <a href="@ViewBag.ReturnUrl" class="btn btn-outline-dark">取消</a>
+            </div>
+       </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");     
+    }
+    @*  <script src="~/js/taskFunctions.js"></script> *@
+    
+    <script>
+        function toggleGroupSelect() {
+            const taskPG = document.getElementById('taskPG');
+            const groupSelect = document.getElementById('groupSelect');
+            const groupNoSelect = document.getElementById('groupNoSelect');
+             if (taskPG.value === 'group') {
+            groupSelect.style.display = 'block'; // 顯示小組選擇清單
+            hiddenInput.value = groupSelect.value; // 設定選中的小組值
+        } else {
+            groupSelect.style.display = 'none'; // 隱藏小組選擇清單
+            groupNoSelect.value = ''; // 將小組選擇設為空值（NULL）
+        }
+        }
+            // 監聽小組選擇變更，確保值被更新
+        document.getElementById('groupNoSelect').addEventListener('change', function () {
+            document.getElementById('hiddenGroupNo').value = this.value;
+        });
+
+            // 預防初始狀態錯誤
+        document.addEventListener("DOMContentLoaded", toggleGroupSelect);
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const startDateInput = document.getElementById("Task_TaskStartDate");
+            const endDateInput = document.getElementById("Task_TaskEndDate");
+
+                // 確保 input 可以被點選
+            endDateInput.addEventListener("click", function () {
+            this.showPicker(); // 強制打開日期選擇器
+             });
+
+
+            function updateEndDateMin() {
+                if (startDateInput.value) {
+                    endDateInput.min = startDateInput.value;
+                }
+            }
+
+            // 當開始日期變更時，更新結束日期的 min 屬性
+            startDateInput.addEventListener("change", updateEndDateMin);
+
+            // 頁面加載時初始化 (防止表單回填導致錯誤)
+            updateEndDateMin();
+        });
+
+        $(document).ready(function () {
+             var taskNameInput = document.getElementById('Task_TaskName');
+             var form = document.getElementById('createForm');
+             var errorSpan = document.getElementById('taskNameError');
+             var isTaskNameValid = true;
+
+             // 即時檢查 TaskName
+             taskNameInput.addEventListener("input", function () {
+                 var taskName = $(this).val();
+
+                 if (taskName.length > 0) {
+                     $.ajax({
+                         url: "/Tasks/CheckTaskName",
+                         type: "GET",
+                         data: { taskName: taskName },
+                         success: function (response) {
+                             if (response.exists) {
+                                 errorSpan.style.display = 'block'; // 使用原生 JS 顯示
+                                 isTaskNameValid = false;
+                             } else {
+                                 errorSpan.style.display = 'none'; // 使用原生 JS 隱藏
+                                 isTaskNameValid = true;
+                             }
+                         },
+                         error: function () {
+                             console.log("檢查 TaskName 失敗");
+                         }
+                     });
+                 } else {
+                     errorSpan.hide();
+                     isTaskNameValid = true;
+                 }
+             });
+
+             // 表單提交時檢查
+            form.addEventListener("submit", function (e) {
+            if (!isTaskNameValid) {
+                e.preventDefault();
+                errorSpan.style.display = 'block';
+            }
+        });
+         });
+    
+                             
+                             
+             document.addEventListener("DOMContentLoaded", function () {
+            var isGroupTask = '@ViewBag.IsGroupTask' === 'True';
+            var taskPG = document.getElementById('taskPG');
+            var groupSelect = document.getElementById('groupSelect');
+            var groupNoSelect = document.getElementById('groupNoSelect');
+            var hiddenGroupNo = document.getElementById('hiddenGroupNo');
+
+            if (isGroupTask) {
+                taskPG.value = 'group';
+                groupSelect.style.display = 'block';
+                groupNoSelect.value = '@Model.Task.GroupNo';
+                hiddenGroupNo.value = '@Model.Task.GroupNo';
+            }
+
+            taskPG.addEventListener("change", function () {
+                if (this.value === 'group') {
+                    groupSelect.style.display = 'block';
+                } else {
+                    groupSelect.style.display = 'none';
+                    groupNoSelect.value = ''; // 清空選擇
+                    hiddenGroupNo.value = ''; // 清空隱藏欄位
+                }
+            });
+
+            // 確保小組選擇變更時更新 hidden input
+            groupNoSelect.addEventListener("change", function () {
+                hiddenGroupNo.value = this.value;
+            });
+        });
+    </script>
+
+    
+
+     
+ 
+
+
+        
+
+   
+   
+}

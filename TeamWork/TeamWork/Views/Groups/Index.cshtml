@@ -1,0 +1,99 @@
+﻿@* @model IEnumerable<Teamwork.Models.Group>
+ *@
+ @model Teamwork.ViewModels.VMGroup
+
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Group-Index Page ~ Layout";
+}
+
+<h1 class="text-center text-warning"><i class="bi bi-people-fill "></i>我的小組</h1>
+
+<p class="text-end">
+    <a asp-action="Create" class=" btn btn-warning"><i class="bi bi-plus-square"></i> 新小組</a>
+</p>
+
+<div class="row">
+    @* <div class="col-2">
+        <h4 class="text-center">小組</h4>
+        <div class="list-group">
+            @foreach (var item in Model.Groups)
+            {
+                <a asp-action="Index" asp-route-deptid="@item.GroupNo" class="list-group-item-action list-group-item text-center">@item.GroupName</a>
+            }
+        </div>
+    </div> *@
+    <div class="row row-cols-1 row-cols-md-3 g-3 ms-2 me-2">
+        @foreach (var item in Model.Groups)@*  *@
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.GroupName</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">
+                            共有<i class="bi bi-chevron-compact-left"></i> @(item.Task?.Count() ?? 0) <i class="bi bi-chevron-compact-right"></i>個任務
+                        </h6>
+                        <p class="card-text text-secondary">
+                            @if (item.GroupDetail.Any())
+                            {
+                                @item.GroupDetail.First().GroupContent
+                            }
+                            else
+                            {
+                                <span class="text-muted">無填寫簡介內容</span>
+                            }
+                        </p>
+                        <p>@item.StartDate.ToString("yyyy-MM-dd")<i class="bi bi-dash"></i>@item.EndDate.ToString("yyyy-MM-dd")</p>
+                    </div>
+                    <div class="card-footer text-end">
+                        <a asp-action="Edit" asp-route-id="@item.GroupNo" class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil-square"></i></a>
+                        <a asp-action="Details" asp-route-id="@item.GroupNo" class="btn btn-sm btn-outline-dark"><i class="bi bi-card-text"></i></a>
+                        <a asp-action="Delete" asp-route-id="@item.GroupNo" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash3-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+
+@* <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Group.GroupName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Group.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Group.EndDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Groups) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.GroupNo">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.GroupNo">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.GroupNo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table> *@
+   @*  </div> *@
+</div>
+
+    

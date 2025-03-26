@@ -1,0 +1,233 @@
+﻿@model IEnumerable<Teamwork.Models.Task>
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "IndexAll Page ~ Layout";
+}
+
+<h1 class="text-center">我的任務</h1>
+
+<p class="text-end">
+    @* <a asp-action="Create" class=" btn btn-success"><i class="bi bi-plus-square"></i> 新任務</a> *@
+    <a asp-action="Create" asp-controller="Tasks" asp-route-returnUrl="@Url.Action("IndexAll", "Tasks", new { employeeId = ViewContext.HttpContext.Session.GetString("NEmployee") })" class="btn btn-success">
+        <i class="bi bi-plus-square"></i> 新任務
+    </a>
+</p>
+<div class="container" id="TaskList">
+<table class="table" id="Data">
+    <thead>
+        <tr>
+            <th>
+             
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskTypeNoNavigation)
+            </th>
+            <th style="width: 10%">
+                @Html.DisplayNameFor(model => model.TaskName)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.TaskCreateDate)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.TaskStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupNoNavigation)/個人
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusNoNavigation)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody >
+            @{
+                int index = 1;
+            }
+@foreach (var item in Model) {
+        <tr>
+            <td>@index</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskTypeNoNavigation.TaskTypeName)
+            </td>
+             <td class="text-start text-break" style="width: 20%">
+                @Html.DisplayFor(modelItem => item.TaskName)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.TaskCreateDate)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskEndDate)
+            </td>
+            <td>
+                @(item.GroupNoNavigation != null ? item.GroupNoNavigation.GroupName : "--")
+               
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusNoNavigation.Status)
+            </td>
+
+            <td>
+                @* <a asp-action="Details" asp-route-id="@item.TaskID">Edit</a> | *@
+                @* <a asp-action="Edit" asp-route-id="@item.TaskID" class="btn btn-outline-primary " id="btnEdit" aria-disabled="true" data-status="@item.StatusNo"><i class="bi bi-pencil-square"></i>編輯</a>
+                    <a asp-action="Delete" asp-route-id="@item.TaskID" class="btn btn-outline-danger me-1" id="btnDelete" aria-disabled="true" data-status="@item.StatusNo"><i class="bi bi-trash3-fill"></i>刪除</a>
+                <a asp-route-id="@item.TaskID" class="btn btn-outline-success me-1" id="btnComplete"><i class="bi bi-check-square-fill"></i>完成</a> *@
+                    <a asp-action="Edit" asp-route-id="@item.TaskID" class="btn btn-outline-primary edit-btn"
+                           data-status="@item.StatusNo" asp-route-returnUrl="@Url.Action("IndexAll", "Tasks", new { employeeId = ViewContext.HttpContext.Session.GetString("NEmployee") })">
+                        <i class="bi bi-pencil-square"></i> 編輯
+                    </a>
+                    <a asp-controller="Progresses" asp-action="Index" asp-route-id="@item.TaskID" class="btn btn-outline-dark edit-btn"
+                           data-status="@item.StatusNo" asp-route-returnUrl="@Url.Action("IndexAll", "Tasks", new { employeeId = ViewContext.HttpContext.Session.GetString("NEmployee") })">
+                            <i class="bi bi-chat-square-text"></i> 進度
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.TaskID" data-bs-toggle="modal" data-bs-target="#DeleteModal"
+                           class="btn btn-outline-danger delete-btn" onclick="showDeleteModal('@item.TaskID')"
+                           data-status="@item.StatusNo" >
+                        <i class="bi bi-trash3-fill"></i> 刪除
+                    </a>
+
+            </td>
+        </tr>
+        index++;
+}
+    </tbody>
+</table>
+</div>
+
+
+    <div class="modal fade" id="DeleteModal"> @*  tabindex="-1" aria-labelledby="DeleteModalLabel" aria-hidden="true" *@
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fs-5" id="DeleteModalLabel">刪除任務</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 這裡會透過 AJAX 載入 /Tasks/DeleteConfirm -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteTask()">確認刪除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+
+       
+
+        
+        var myModal = new bootstrap.Modal(document.getElementById('DeleteModal'));
+        var currentTaskID = null;
+
+
+        // 開啟刪除 Modal，並載入內容
+        function showDeleteModal(taskID) {
+            if (!taskID) {
+            console.error("無效的 taskID:", taskID);
+            return;
+        }
+            currentTaskID = taskID; // 記住當前要刪除的 Task
+            
+
+            $('#DeleteModal .modal-body').load(`/Tasks/Delete/${currentTaskID}`, function () {
+                myModal.show(); // 顯示 Modal
+            });
+        }
+                  
+        function deleteTask(){
+            console.log("deleteTask 函數被觸發，currentTaskID:", currentTaskID);
+
+            if (!currentTaskID) return;
+                      
+
+            $.ajax({
+                 type:'POST',
+                 url:`/Tasks/Delete/${currentTaskID}`,
+                data:$('#deleteForm').serialize(),
+                success:function(){
+                    console.log("AJAX 請求成功");
+                    data:$('#deleteForm').serialize(),
+                    //把Modal視窗關閉
+                   myModal.hide();
+
+
+                    $('#TaskList').load('/Tasks/IndexAll #TaskList', function () {
+                    console.log("任務已刪除，清單已更新");
+                    setupButtons(); // 重新設置按鈕狀態
+                     });
+
+                },
+                error:function(res){
+                    console.log("刪除失敗", res);
+                }
+            });
+
+        }
+
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            setupButtons();
+        });
+
+        function setupButtons() {
+            document.querySelectorAll(".edit-btn").forEach(function (btn) {
+                let status = btn.getAttribute("data-status");
+                if ( status === "3") { // 取消 或 已完成
+                    disableLink(btn);
+                }
+            });
+
+            document.querySelectorAll(".delete-btn").forEach(function (btn) {
+                let status = btn.getAttribute("data-status");
+                if (status === "1"  || status === "3") { // 進行中  / 已完成
+                    disableLink(btn);
+                }
+                else if (status === "0"|| status === "2" ) { // 評估中/ 取消
+                    btn.addEventListener("click", function (event) {
+                        event.preventDefault(); // 防止直接導向刪除
+                        //showDeleteModal(this.getAttribute("href"));
+                        let taskID = this.getAttribute("asp-route-id"); // 確保只獲取 Task ID
+                        showDeleteModal(taskID);
+                    });
+                }
+            });
+        }
+
+        function disableLink(link) {
+            link.removeAttribute("href"); // 移除連結，防止點擊
+            link.classList.add("disabled");
+            link.classList.add("btn-light");
+            link.classList.remove("btn-outline-primary");
+            link.classList.remove("btn-outline-danger");
+            link.classList.remove("btn-outline-dark");
+            link.style.pointerEvents = "none"; // 禁止滑鼠點擊
+            link.style.color="gray"; // 讓按鈕變淡
+        }
+
+        // function confirmDelete(url) {
+        //     if (confirm("確定要刪除這項任務嗎？")) {
+        //         window.location.href = url;
+        //     }
+        // }
+    </script>
+   
+
+}
+
+
