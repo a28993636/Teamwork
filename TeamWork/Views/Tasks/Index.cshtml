@@ -1,0 +1,165 @@
+﻿@model IEnumerable<Teamwork.Models.Task>
+
+@{
+    Layout = "_Layout";   
+    ViewData["Title"] = "Index Page ~ Layout";
+}
+
+<h1 class="text-center text-success">我的個人任務<i class="bi bi-person-arms-up"></i></h1>
+
+<p class="text-end">
+    @* <a asp-action="Create" class=" btn btn-success"><i class="bi bi-plus-square"></i> 新任務</a> *@
+    <a asp-action="Create" asp-controller="Tasks" asp-route-returnUrl="@Url.Action("Index", "Tasks", new { employeeId = ViewContext.HttpContext.Session.GetString("NEmployee") })" class="btn btn-success">
+        <i class="bi bi-plus-square"></i> 新任務
+    </a>
+</p>
+<div class="container">
+<table class="table ">
+    <thead>
+        <tr class="text-center">
+            <th>
+                    
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskTypeNoNavigation)
+            </th>
+            <th style="width: 10%">
+                @Html.DisplayNameFor(model => model.TaskName)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.TaskCreateDate)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.TaskStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskEndDate)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.GroupNoNavigation)/個人
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.StatusNoNavigation)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+            @{
+                int index = 1;
+            }
+@foreach (var item in Model) {
+        <tr class="text-center">
+            <td>@index</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskTypeNoNavigation.TaskTypeName)
+            </td>
+             <td class="text-start text-break" style="width: 20%">
+                @Html.DisplayFor(modelItem => item.TaskName)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.TaskCreateDate)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskEndDate)
+            </td>
+            @* <td>
+                @(item.GroupNoNavigation != null ? item.GroupNoNavigation.GroupName : "--")
+               
+                </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusNoNavigation.Status)
+            </td>
+
+            <td>
+                @* <a asp-action="Details" asp-route-id="@item.TaskID">Edit</a> | *@
+                @* <a asp-action="Edit" asp-route-id="@item.TaskID" class="btn btn-outline-primary " id="btnEdit" aria-disabled="true" data-status="@item.StatusNo"><i class="bi bi-pencil-square"></i>編輯</a>
+                    <a asp-action="Delete" asp-route-id="@item.TaskID" class="btn btn-outline-danger me-1" id="btnDelete" aria-disabled="true" data-status="@item.StatusNo"><i class="bi bi-trash3-fill"></i>刪除</a>
+                <a asp-route-id="@item.TaskID" class="btn btn-outline-success me-1" id="btnComplete"><i class="bi bi-check-square-fill"></i>完成</a> *@
+                 <div class="class=" btn-group">
+                <a asp-action="Edit" asp-route-id="@item.TaskID" class="btn btn-outline-primary edit-btn"
+                               data-status="@item.StatusNo" asp-route-returnUrl="@Url.Action("Index", "Tasks", new { employeeId = ViewContext.HttpContext.Session.GetString("NEmployee") })">
+                        <i class="bi bi-pencil-square"></i> 編輯
+                    </a>
+                    <a asp-controller="Progresses" asp-action="Index" asp-route-id="@item.TaskID" class="btn btn-outline-dark edit-btn"
+                               data-status="@item.StatusNo" asp-route-returnUrl="@Url.Action("Index", "Tasks", new { employeeId = ViewContext.HttpContext.Session.GetString("NEmployee") })" >
+                        <i class="bi bi-chat-square-text"></i> 進度
+                    </a>
+                    <a href="@Url.Action("Delete", new { id = item.TaskID })"
+                       class="btn btn-outline-danger delete-btn"
+                       data-status="@item.StatusNo">
+                        <i class="bi bi-trash3-fill"></i> 刪除
+                    </a>
+                </div>
+            </td>
+        </tr>
+                index++;
+}
+    </tbody>
+</table>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setupButtons();
+        });
+
+        function setupButtons() {
+            document.querySelectorAll(".edit-btn").forEach(function (btn) {
+                let status = btn.getAttribute("data-status");
+                if (status === "2" || status === "3") { // 取消 或 已完成
+                    disableLink(btn);
+                }
+            });
+
+            // document.querySelectorAll(".delete-btn").forEach(function (btn) {
+            //     let status = btn.getAttribute("data-status");
+            //     if (status === "1" || status === "2" || status === "3") { // 進行中 / 取消 / 已完成
+            //         disableLink(btn);
+            //     } else if (status === "0") { // 評估中
+            //         btn.addEventListener("click", function (event) {
+            //             event.preventDefault(); // 防止直接導向刪除
+            //             confirmDelete(this.getAttribute("href"));
+            //         });
+            //     }
+            // });
+             document.querySelectorAll(".delete-btn").forEach(function (btn) {
+            let status = btn.getAttribute("data-status");
+            if (status === "1" || status === "2" || status === "3") { // 進行中 / 取消 / 已完成
+                disableLink(btn);
+            } else if (status === "0") { // 評估中
+                btn.addEventListener("click", function (event) {
+                    event.preventDefault(); // 防止立即導向刪除頁面
+                    let url = this.getAttribute("href"); // 取得原本的刪除 URL
+                    confirmDelete(url); // 呼叫確認函式
+                });
+            }
+        });
+
+
+        }
+
+        function disableLink(link) {
+            //link.removeAttribute("href"); // 移除連結，防止點擊
+            link.classList.add("disabled","btn-light");
+            link.classList.remove("btn-outline-primary","btn-outline-danger","btn-outline-dark");
+            link.style.pointerEvents = "none"; // 禁止滑鼠點擊
+            link.style.color="gray"; // 讓按鈕變淡
+        }
+
+        function confirmDelete(url) {
+            if (confirm("確定要刪除這項任務嗎？")) {
+                window.location.href = url;
+            }
+        }
+    </script>
+   
+
+}
+
+

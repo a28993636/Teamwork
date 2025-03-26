@@ -1,0 +1,14 @@
+﻿@{
+    Layout = "_UserLayout";
+
+    if (Context.Request.RouteValues["controller"]?.ToString() == "TasksManage" || Context.Request.RouteValues["controller"]?.ToString() == "LoginsManage")
+    {
+        Layout = "_Layout";
+
+        //5.3.5 在_ViewStart.cshtml加入未登入則將網頁自動導往/Home/Index的判斷式
+        if (Context.Session.GetString("Manager") == null)
+        {
+            Context.Response.Redirect("/Home/Index");
+        }
+    }
+}

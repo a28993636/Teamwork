@@ -1,0 +1,107 @@
+﻿@{
+
+    var employeeName = Context.Session.GetString("EmployeeName");
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Teamwork</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Teamwork.styles.css" asp-append-version="true" />
+
+
+    <style>
+        /* 為所有標有 required class 的 label 自動添加紅色 * */
+        label.required::after {
+            content: " *";
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+  <div class="container">
+        <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                    <a class="navbar-brand" asp-area="" asp-controller="Tasks" asp-action="IndexAll">Teamwork</a>
+                   @*  <a class="navbar-brand" asp-area="" asp-controller="Tasks" asp-action="IndexAll">任務列表</a> *@
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item fw-bold">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Tasks" asp-action="IndexAll">所有任務列表</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                任務
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="Tasks" asp-action="Index">我的任務</a></li>
+                                <li><a class="dropdown-item" asp-controller="Tasks" asp-action="Create">新增任務</a></li>
+                                
+                                @* <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li> *@
+                            </ul>
+                           
+                        </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    小組
+                                </a>                                
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="Groups" asp-action="Index">我的小組</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Groups" asp-action="Create">新增小組</a></li>
+
+                                </ul>
+                            </li>
+                    </ul>
+                </div>
+                    @if (!string.IsNullOrEmpty(employeeName))
+                    {
+                        @* <span class="text-end">Welcome, @employeeName</span> 
+                        <a class="btn btn-outline-dark ms-2" asp-area="" asp-controller="Login" asp-action="Logout">登出</a> *@
+                        <div class="d-flex align-items-center flex-nowrap ms-auto">
+                            <span class="me-2">Welcome, @employeeName</span>
+                            <a class="btn btn-outline-dark" asp-area="" asp-controller="Login" asp-action="Logout">登出</a>
+                        </div>
+                    }
+                        else {
+                            <a class="btn btn-outline-dark" asp-area="" asp-controller="Login" asp-action="Login">登入</a>
+                            <a class="btn btn-outline-dark" asp-area="" asp-controller="Login" asp-action="Register">註冊</a>
+                        }
+                   
+            </div>
+              
+        </nav>
+           
+    </header>
+   
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+        <footer class="border-top footer text-muted" >
+        <div class="container text-center">
+            &copy; 2025 - Teamwork  _Layout 
+        </div>
+    </footer>
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+  
+</body>
+
+</html>

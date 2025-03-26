@@ -1,0 +1,116 @@
+﻿@model Teamwork.ViewModels.VMGroup
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = " Group Edit Page ~ Layout";
+}
+
+<h2 class="text-center">編輯小組</h2>
+<hr />
+<div class="row ms-2 me-2 justify-content-center">
+    <div class="col-md-4">
+        <form asp-action="Edit" id="GroupEditForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Group.GroupNo" />
+            <div class="form-group">
+                <label asp-for="Group.GroupName" class="control-label required"></label>
+                <input asp-for="Group.GroupName" class="form-control" />
+                <span asp-validation-for="Group.GroupName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Group.StartDate" class="control-label required"></label>
+               @*  <input asp-for="Group.StartDate" class="form-control" type="datetime-local" id="Group_StartDate" /> *@
+                <input type="date" id="Group_StartDate" name="Group.StartDate"
+                       value="@(Model.Group.StartDate.ToString("yyyy-MM-dd"))"
+                       class="form-control" />
+                <span asp-validation-for="Group.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Group.EndDate" class="control-label required"></label>
+                @* <input asp-for="Group.EndDate" class="form-control" type="datetime-local" id="Group_EndDate"/> *@
+                <input type="date" id="Group_EndDate" name="Group.EndDate"
+                       value="@(Model.Group.EndDate != DateTime.MinValue ? Model.Group.EndDate.ToString("yyyy-MM-dd") : "")"
+                       min="@(Model.Group.StartDate != DateTime.MinValue ? Model.Group.StartDate.AddDays(1).ToString("yyyy-MM-dd") : "")"
+                       class="form-control" />               
+                <span asp-validation-for="Group.EndDate" class="text-danger" id="spanEndDate"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GroupDetail.GroupContent" class="control-label"></label>
+                <textarea id="GroupDetail_GroupContent" name="GroupDetail.GroupContent" class="form-control">@(Model.GroupDetail?.GroupContent?.Trim() ?? "未填寫")</textarea>
+                <span asp-validation-for="GroupDetail.GroupContent" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2 text-end">
+                <input type="submit" value="儲存" class="btn btn-outline-primary" />
+                <a asp-action="Index" class="btn btn-outline-dark">取消</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@* <div>
+    <a asp-action="Index">Back to List</a>
+</div> *@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+               document.addEventListener("DOMContentLoaded", function () {
+            const startDateInput = document.getElementById("Group_StartDate");
+            const endDateInput = document.getElementById("Group_EndDate");
+            const spanEndDate = document.getElementById("spanEndDate");
+            const form = document.getElementById("GroupEditForm"); // 取得表單元素
+
+            function updateEndDateMin() {
+                if (startDateInput.value) {
+                    endDateInput.min = startDateInput.value;
+                }
+            }
+
+            function validateEndDate() {
+                if (startDateInput.value && endDateInput.value && endDateInput.value < startDateInput.value) {
+                    console.warn("錯誤: 結束日期不能早於開始日期");
+
+                    // 保持錯誤訊息顯示
+                    endDateInput.value = startDateInput.value;
+                    spanEndDate.innerHTML = "結束日期應晚於開始日期，已自動修正，請確認修改。";
+                    spanEndDate.style.display = "block"; // 顯示錯誤訊息
+                    return false;
+                }
+                return true;
+            }
+
+            // 監聽輸入變更事件
+            updateEndDateMin();
+            startDateInput.addEventListener("change", function () {
+                updateEndDateMin();
+                validateEndDate();
+            });
+            endDateInput.addEventListener("change", validateEndDate);
+
+            // **表單提交驗證**
+            form.addEventListener("submit", function (e) {
+                console.log("表單提交觸發");
+                const isValid = validateEndDate();
+
+                if (spanEndDate.innerHTML.trim() !== "") { // 判斷 spanEndDate 是否有內容
+                    e.preventDefault(); // 阻止提交
+                    alert("請修正錯誤後再提交表單。");
+                    console.error("表單提交被阻止，錯誤訊息:", spanEndDate.innerHTML);
+                    spanEndDate.style.display = "block"; // 確保錯誤訊息顯示
+                } else {
+                    console.log("✅ 表單提交成功");
+                }
+            });
+        });
+
+
+    </script>
+
+
+
+
+
+
+}

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Teamwork.Models.Progress>
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Index Page ~ Layout";
+}
+
+<h1 class="text-center"><i class="bi bi-chat-square-text"></i> 任務進度</i></h1>
+
+<p class ="text-end">
+    <a class="btn btn-light " style="cursor: default;"><i class="bi bi-plus-square"></i> 新增紀錄</a>@* asp-action="Create" *@
+</p>
+<h3></h3>
+<table class="table">
+   
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th> *@
+            <th>
+                @Html.DisplayNameFor(model => model.Task.TaskName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    
+        <tbody>
+        
+            @foreach (var item in Model)
+            {
+                <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+           @*  <td>
+                @Html.DisplayFor(modelItem => item.Employee.EmployeeID)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Task.TaskName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @* <a asp-action="Edit" asp-route-id="@item.ProgressNo">編輯</a> | *@
+                @* <a asp-action="Details" asp-route-id="@item.ProgressNo">Details</a> | *@
+                @* <a asp-action="Delete" asp-route-id="@item.ProgressNo">刪除</a> *@
+            </td>
+        </tr>}
+        
+        </tbody> 
+    </table>
+
+<!-- 顯示無進度紀錄的警告訊息 -->
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-warning text-center" role="alert">
+        <i class="bi bi-exclamation-circle"></i> 無進度紀錄
+    </div>
+}
+
+
+<!-- 回上頁按鈕 -->
+<input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+<p class="text-end">
+    <a href="@ViewBag.ReturnUrl" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> 回上頁
+    </a>
+</p>
