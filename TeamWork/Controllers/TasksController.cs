@@ -11,7 +11,6 @@ using Microsoft.EntityFrameworkCore;
 using Teamwork.Filters;
 using Teamwork.Models;
 using Teamwork.ViewModels;
-using Task = Teamwork.Models.Task;
 
 namespace Teamwork.Controllers
 {
@@ -98,26 +97,43 @@ namespace Teamwork.Controllers
         public IActionResult Create(string? groupNo,string returnUrl  )
         {
              var viewModel = new VMTask();
-            if (string.IsNullOrEmpty(groupNo))
+            if (!string.IsNullOrEmpty(groupNo))
             {
-                viewModel.Task = new Task
+                bool isValidGroup = _context.Group.Any(g => g.GroupNo == groupNo);
+
+                if (!isValidGroup)
+                {
+                    TempData["ErrorMessage"] = "無效的小組編號";
+                    return RedirectToAction("Index");
+                }
+
+                viewModel.Task = new Models.Task
                 {
                     GroupNo = groupNo
                 };
+
                 ViewBag.IsGroupTask = true;
+
+                // 只顯示特定小組
+                ViewData["Group"] = new SelectList(
+                    _context.Group.Where(g => g.GroupNo == groupNo),
+                    "GroupNo", "GroupName"
+                );
             }
             else
             {
                 ViewBag.IsGroupTask = false;
+
+                // 顯示所有群組
+                ViewData["Group"] = new SelectList(
+                    _context.Group, "GroupNo", "GroupName"
+                );
             }
 
-
-
-            ViewData["Group"] = new SelectList(_context.Group, "GroupNo", "GroupName");
             ViewData["Status"] = new SelectList(_context.TaskStatus, "StatusNo", "Status");
             ViewData["TaskType"] = new SelectList(_context.TaskType, "TaskTypeNo", "TaskTypeName");
             ViewBag.ReturnUrl = returnUrl; // 將 returnUrl 存入 ViewBag
-            return View();
+            return View(viewModel);
         }
 
         // POST: Tasks/Create

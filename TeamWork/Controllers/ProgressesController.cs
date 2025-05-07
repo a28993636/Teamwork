@@ -89,8 +89,8 @@ namespace Teamwork.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Progress progress)
         {
-            ModelState.Remove("Task");
-            ModelState.Remove("TaskID");
+            //ModelState.Remove("Task");
+            //ModelState.Remove("TaskID");
             //TaskID = vmtask.Task.TaskID;
 
             if (ModelState.IsValid)

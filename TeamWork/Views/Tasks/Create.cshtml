@@ -16,7 +16,7 @@
             <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @* <input type="hidden" name="Task.TaskID"  /> *@
+           
             <input type="hidden" name="TaskDetail.EmployeeID"  />
             
             <div class="form-group">
@@ -33,7 +33,10 @@
             </div>
             <div class="form-group">
                 <label asp-for="Task.TaskEndDate" class="control-label required"></label>
-                <input type="datetime-local" asp-for="Task.TaskEndDate" id="Task_TaskEndDate" class="form-control" required   />
+                @* <input type="datetime-local" asp-for="Task.TaskEndDate" id="Task_TaskEndDate" class="form-control" required   /> *@
+                <input type="datetime-local" asp-for="Task.TaskEndDate" id="Task_TaskEndDate" class="form-control"
+                       value="@(Model?.Task?.TaskEndDate == DateTime.MinValue ? "" : Model?.Task?.TaskEndDate.ToString("yyyy-MM-ddTHH:mm"))" required />
+
                 <span asp-validation-for="Task.TaskEndDate" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -60,7 +63,7 @@
             </div>
             <div class="form-group" id="groupSelect" style="display: none;">@* *@
                 <label asp-for="Task.GroupNo" class="control-label required"></label>
-                <select id="groupNoSelect" asp-for="Task.GroupNo" class="form-control" asp-items="ViewBag.Group">
+                <select id="groupNoSelect" asp-for="Task.GroupNo" class="form-control" asp-items="@ViewData["Group"] as SelectList">
                 <option value="">請選擇小組</option>
                 </select>
             </div>
@@ -84,10 +87,14 @@
 
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");     
-    }
-    @*  <script src="~/js/taskFunctions.js"></script> *@
+   
+   @*  @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    } *@
+   
+    <partial name="_ValidationScriptsPartial" />
+
+   
     
     <script>
         function toggleGroupSelect() {
@@ -97,10 +104,10 @@
              if (taskPG.value === 'group') {
             groupSelect.style.display = 'block'; // 顯示小組選擇清單
             hiddenInput.value = groupSelect.value; // 設定選中的小組值
-        } else {
-            groupSelect.style.display = 'none'; // 隱藏小組選擇清單
-            groupNoSelect.value = ''; // 將小組選擇設為空值（NULL）
-        }
+            } else {
+                groupSelect.style.display = 'none'; // 隱藏小組選擇清單
+                groupNoSelect.value = ''; // 將小組選擇設為空值（NULL）
+            }
         }
             // 監聽小組選擇變更，確保值被更新
         document.getElementById('groupNoSelect').addEventListener('change', function () {
@@ -174,12 +181,12 @@
                 e.preventDefault();
                 errorSpan.style.display = 'block';
             }
-        });
+               });
          });
     
                              
                              
-             document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function () {
             var isGroupTask = '@ViewBag.IsGroupTask' === 'True';
             var taskPG = document.getElementById('taskPG');
             var groupSelect = document.getElementById('groupSelect');

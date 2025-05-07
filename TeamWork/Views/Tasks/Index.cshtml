@@ -89,11 +89,13 @@
                                data-status="@item.StatusNo" asp-route-returnUrl="@Url.Action("Index", "Tasks", new { employeeId = ViewContext.HttpContext.Session.GetString("NEmployee") })" >
                         <i class="bi bi-chat-square-text"></i> 進度
                     </a>
-                    <a href="@Url.Action("Delete", new { id = item.TaskID })"
-                       class="btn btn-outline-danger delete-btn"
-                       data-status="@item.StatusNo">
-                        <i class="bi bi-trash3-fill"></i> 刪除
-                    </a>
+               
+                            <a asp-action="Delete" asp-route-id="@item.TaskID" data-bs-toggle="modal" data-bs-target="#DeleteModal"
+                               class="btn btn-outline-danger delete-btn" onclick="showDeleteModal('@item.TaskID')"
+                               data-status="@item.StatusNo">
+                                <i class="bi bi-trash3-fill"></i> 刪除
+                            </a>
+
                 </div>
             </td>
         </tr>
@@ -103,8 +105,85 @@
 </table>
 </div>
 
+<div class="modal fade" id="DeleteModal">
+    @*  tabindex="-1" aria-labelledby="DeleteModalLabel" aria-hidden="true" *@
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fs-5" id="DeleteModalLabel">刪除任務</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- 這裡會透過 AJAX 載入 /Tasks/DeleteConfirm -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-danger" onclick="deleteTask()">確認刪除</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 @section Scripts {
     <script>
+
+        var myModal = new bootstrap.Modal(document.getElementById('DeleteModal'));
+        var currentTaskID = null;
+
+
+        // 開啟刪除 Modal，並載入內容
+        function showDeleteModal(taskID) {
+            if (!taskID) {
+            console.error("無效的 taskID:", taskID);
+            return;
+        }
+            currentTaskID = taskID; // 記住當前要刪除的 Task
+
+
+            $('#DeleteModal .modal-body').load(`/Tasks/Delete/${currentTaskID}`, function () {
+                myModal.show(); // 顯示 Modal
+            });
+        }
+
+        function deleteTask(){
+            console.log("deleteTask 函數被觸發，currentTaskID:", currentTaskID);
+
+            if (!currentTaskID) return;
+
+
+            $.ajax({
+                 type:'POST',
+                 url:`/Tasks/Delete/${currentTaskID}`,
+                data:$('#deleteForm').serialize(),
+                success:function(){
+                    console.log("AJAX 請求成功");
+                    data:$('#deleteForm').serialize(),
+                    //把Modal視窗關閉
+                   myModal.hide();
+
+
+                    $('#TaskList').load('/Tasks/IndexAll #TaskList', function () {
+                    console.log("任務已刪除，清單已更新");
+                    setupButtons(); // 重新設置按鈕狀態
+                     });
+
+                },
+                error:function(res){
+                    console.log("刪除失敗", res);
+                }
+            });
+
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            setupButtons();
+        });
+
+
+
+
         document.addEventListener("DOMContentLoaded", function () {
             setupButtons();
         });
@@ -152,11 +231,7 @@
             link.style.color="gray"; // 讓按鈕變淡
         }
 
-        function confirmDelete(url) {
-            if (confirm("確定要刪除這項任務嗎？")) {
-                window.location.href = url;
-            }
-        }
+        
     </script>
    
 

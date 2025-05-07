@@ -59,7 +59,7 @@
         @* < a asp-action="Edit" asp-route-id="@Model?.GroupNo">Edit</a> |
         <a asp-action="Index">Back to List</a> *@
 
-        <a asp-action="Create" asp-controller="Tasks" asp-route-id="@Model?.GroupNo" asp-route-returnUrl="@Url.Action("Details", "Groups", new { employeeId = ViewContext.HttpContext.Session.GetString("NEmployee") })" class="btn btn-success">增加新任務</a>
+        <a asp-action="Create" asp-controller="Tasks" asp-route-groupNo="@Model?.GroupNo" asp-route-returnUrl="@Url.Action("Details", "Groups", new { employeeId = ViewContext.HttpContext.Session.GetString("NEmployee") })" class="btn btn-success">增加新任務</a>
         <a asp-action="Index" class="btn btn-dark ms-2">回上頁</a>
 
     </div>

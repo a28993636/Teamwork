@@ -68,18 +68,16 @@
                     </ul>
                 </div>
                     @if (!string.IsNullOrEmpty(employeeName))
-                    {
-                        @* <span class="text-end">Welcome, @employeeName</span> 
-                        <a class="btn btn-outline-dark ms-2" asp-area="" asp-controller="Login" asp-action="Logout">登出</a> *@
+                    {                        
                         <div class="d-flex align-items-center flex-nowrap ms-auto">
                             <span class="me-2">Welcome, @employeeName</span>
                             <a class="btn btn-outline-dark" asp-area="" asp-controller="Login" asp-action="Logout">登出</a>
                         </div>
-                    }
-                        else {
+                    }else {
                             <a class="btn btn-outline-dark" asp-area="" asp-controller="Login" asp-action="Login">登入</a>
                             <a class="btn btn-outline-dark" asp-area="" asp-controller="Login" asp-action="Register">註冊</a>
-                        }
+                    }
+                     
                    
             </div>
               
@@ -90,8 +88,8 @@
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>
-        <footer class="border-top footer text-muted" >
+  </div>
+    <footer class="border-top footer text-muted" >
         <div class="container text-center">
             &copy; 2025 - Teamwork  _Layout 
         </div>

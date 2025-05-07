@@ -5,11 +5,15 @@
     ViewData["Title"] = "IndexAll Page ~ Layout";
 }
 
-<h1 class="text-center">我的任務</h1>
+<h1 @* class="text-center" *@ class="text-center">我的任務</h1>
 
 <p class="text-end">
-    @* <a asp-action="Create" class=" btn btn-success"><i class="bi bi-plus-square"></i> 新任務</a> *@
-    <a asp-action="Create" asp-controller="Tasks" asp-route-returnUrl="@Url.Action("IndexAll", "Tasks", new { employeeId = ViewContext.HttpContext.Session.GetString("NEmployee") })" class="btn btn-success">
+    
+    @* <a asp-action="Create" asp-controller="Tasks" asp-route-returnUrl="@Url.Action("IndexAll", "Tasks", new { employeeId = ViewContext.HttpContext.Session.GetString("NEmployee") })"
+    class="btn btn-success"> *@
+    <a asp-action="Create" asp-controller="Tasks"
+       asp-route-returnUrl="@Url.Action("IndexAll", "Tasks", new { employeeId = ViewContext.HttpContext.Session.GetString("NEmployee") })"
+       class="custom-btn">
         <i class="bi bi-plus-square"></i> 新任務
     </a>
 </p>
@@ -64,9 +68,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TaskStartDate)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TaskEndDate)
-            </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaskEndDate)
+                        @if (item.TaskEndDate < DateTime.Now)
+                        {
+                            <small class="text-danger ">*已到期</small>
+                        }
+                    </td>
             <td>
                 @(item.GroupNoNavigation != null ? item.GroupNoNavigation.GroupName : "--")
                
@@ -220,13 +228,36 @@
             link.style.color="gray"; // 讓按鈕變淡
         }
 
-        // function confirmDelete(url) {
-        //     if (confirm("確定要刪除這項任務嗎？")) {
-        //         window.location.href = url;
-        //     }
-        // }
+        
     </script>
-   
+    <style>
+        .text-center {
+            text-align: center;
+        }
+
+
+        .custom-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #28a745; /* 綠色背景 */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .custom-btn:hover {
+                background-color: #218838; /* 滑鼠懸停時顏色變化 */
+            }
+
+            .custom-btn i {
+                margin-right: 5px; /* 圖示與文字之間的間距 */
+            }
+    </style>
 
 }
 

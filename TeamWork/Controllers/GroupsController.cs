@@ -334,28 +334,45 @@ namespace Teamwork.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            //var @group = await _context.Group.FindAsync(id);
-            //if (@group != null)
+
+            //// 先刪除與 Group 相關的 GroupDetail 資料
+            //var groupDetails = _context.GroupDetail.Where(gd => gd.GroupNo == id);
+            //_context.GroupDetail.RemoveRange(groupDetails); // 刪除所有 GroupDetail 相關的資料
+
+            //// 然後刪除 Group 資料
+            //var group = await _context.Group.FindAsync(id);
+            //if (group != null)
             //{
-            //    _context.Group.Remove(@group);
+            //    _context.Group.Remove(group);
             //}
 
             //await _context.SaveChangesAsync();
-            //return RedirectToAction(nameof(Index));
 
+            var group = await _context.Group
+                .Include(g => g.Task) // 確保加載 Task
+                .FirstOrDefaultAsync(g => g.GroupNo == id);
 
-            // 先刪除與 Group 相關的 GroupDetail 資料
-            var groupDetails = _context.GroupDetail.Where(gd => gd.GroupNo == id);
-            _context.GroupDetail.RemoveRange(groupDetails); // 刪除所有 GroupDetail 相關的資料
-
-            // 然後刪除 Group 資料
-            var group = await _context.Group.FindAsync(id);
-            if (group != null)
+            if (group == null)
             {
-                _context.Group.Remove(group);
+                return NotFound();
             }
 
+            // 檢查是否仍有任務
+            if (group.Task != null && group.Task.Any())
+            {
+                ViewBag.DeleteError = "請先刪除小組內的任務，才能刪除小組。";
+                return View("Delete", group); // 回到刪除頁面
+            }
+
+            // 刪除 GroupDetail
+            var groupDetails = _context.GroupDetail.Where(gd => gd.GroupNo == id);
+            _context.GroupDetail.RemoveRange(groupDetails);
+
+            // 刪除 Group
+            _context.Group.Remove(group);
             await _context.SaveChangesAsync();
+
+
             return RedirectToAction(nameof(Index));
         }
 
